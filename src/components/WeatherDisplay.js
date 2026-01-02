@@ -1,17 +1,22 @@
-import React from "react";
+import React from 'react';
 
-function WeatherDisplay({ temperature, condition }) {
-  const textStyle = {
-    color: temperature > 20 ? "red" : "blue",
-    fontSize: "20px"
-  };
+function WeatherDisplay({ weather }) {
+    const { temperature, conditions } = weather;
 
-  return (
-    <div>
-      <p style={textStyle}>Temperature: {temperature}°C</p>
-      <p>Condition: {condition}</p>
-    </div>
-  );
+    // Determine the color based on temperature
+    const temperatureStyle = {
+        color: temperature > 20 ? 'red' : 'blue',
+        fontSize: '24px',
+    };
+
+    return (
+        <div>
+            <p>
+                Temperature: <span style={temperatureStyle}>{temperature}°C</span>
+            </p>
+            <p>Conditions: {conditions}</p>
+        </div>
+    );
 }
 
 export default WeatherDisplay;
